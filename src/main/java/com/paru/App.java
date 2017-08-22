@@ -12,7 +12,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        //startInputScanner(args);
+        startInputScanner(args);
     }
 
     private static void startInputScanner(String[] args) {

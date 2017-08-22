@@ -4,12 +4,19 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 
 public class StringsUtils {
 
 
+
+    public Stream getStreamOfStringFromRegex(String regex, String input){
+
+        return Pattern.compile(regex).splitAsStream(input);
+
+    }
 
 
     public static List<String> matchStringRegex(String regex, String input){
