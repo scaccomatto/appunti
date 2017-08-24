@@ -24,6 +24,7 @@ public class App {
             } while (args.length < inputParameterExpected);
 
 
+
         } catch (Exception e) {
             LOGGER.severe(e.getMessage());
             e.printStackTrace();
