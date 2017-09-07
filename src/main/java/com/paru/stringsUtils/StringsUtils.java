@@ -29,6 +29,9 @@ public class StringsUtils {
         while(match.find()){
             results.add(match.group());
         }
+
+        results.stream().sorted().forEach(n -> System.out.print(n+" "));
+
         return results;
     }
 }
