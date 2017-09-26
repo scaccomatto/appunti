@@ -11,14 +11,14 @@ import static java.util.regex.Pattern.CASE_INSENSITIVE;
 public class StringsUtils {
 
 
-
-    public Stream getStreamOfStringFromRegex(String regex, String input){
+    //NB! questo fa lo split con il match della regex(cioe' spazio se spazio, pipe se pipe etc)
+    public static Stream getStreamOfStringFromRegex(String regex, String input){
 
         return Pattern.compile(regex).splitAsStream(input);
 
     }
 
-
+    //NB! questo ritrna la lista della selezione della regex
     public static List<String> matchStringRegex(String regex, String input){
 
         Pattern pattern = Pattern.compile(regex, CASE_INSENSITIVE);
@@ -30,8 +30,8 @@ public class StringsUtils {
             results.add(match.group());
         }
 
-        results.stream().sorted().forEach(n -> System.out.print(n+" "));
-
         return results;
     }
+
+
 }

@@ -1,11 +1,11 @@
-package com.paru.trees.binaryTree;
+package com.paru.treesAndGraphs.binaryTree;
 
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class TreeVisits {
-
+    //most left first
     public static void inOrder(BinaryTree root) {
         if (root == null)
             return;
@@ -14,7 +14,7 @@ public class TreeVisits {
         System.out.print(root.getData() + " ");
         inOrder(root.getRight());
     }
-
+    //root last
     public static void postOrder(BinaryTree root) {
         if (root == null)
             return;
@@ -24,7 +24,7 @@ public class TreeVisits {
 
         System.out.print(root.getData() + " ");
     }
-
+    //root first
     public static void preOrder(BinaryTree root) {
         if (root == null)
             return;
@@ -35,6 +35,7 @@ public class TreeVisits {
         preOrder(root.getRight());
     }
 
+    //BFS implementation
     public static void levelOrder(BinaryTree root) {
 
         if(root== null)

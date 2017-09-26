@@ -5,14 +5,14 @@ import java.util.Arrays;
 
 public class MergeSortAlgorithm {
 
-    public static void mergeSort(Integer[] arrayToSort){
+    public static void mergeSort(int[] arrayToSort){
 
         Integer[] copy = new Integer[arrayToSort.length];
         mergeSort(0,arrayToSort.length-1, arrayToSort, copy);
 
     }
 
-    private static void mergeSort(int start, int end, Integer[] arrayToSort, Integer[] copy) {
+    private static void mergeSort(int start, int end, int[] arrayToSort, Integer[] copy) {
         if(start<end) {
             int middle = (end+start)/ 2;
 
@@ -23,7 +23,7 @@ public class MergeSortAlgorithm {
         }
     }
 
-    private static void merge(int start, int end, int middle, Integer[] arrayToSort, Integer[] copy) {
+    private static void merge(int start, int end, int middle, int[] arrayToSort, Integer[] copy) {
 
         copyArray(arrayToSort, copy);
 
@@ -47,11 +47,11 @@ public class MergeSortAlgorithm {
             k++;
         }
 
-        System.out.println(" e poi "+ Arrays.toString(arrayToSort));
+        //System.out.println(" e poi "+ Arrays.toString(arrayToSort));
 
     }
 
-    private static void copyArray(Integer[] arrayToSort, Integer[] copy) {
+    private static void copyArray(int[] arrayToSort, Integer[] copy) {
         for(int i=0; i< arrayToSort.length;i++){
             copy[i]=arrayToSort[i];
         }

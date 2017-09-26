@@ -1,4 +1,4 @@
-package com.paru.trees.binaryTree;
+package com.paru.treesAndGraphs.binaryTree;
 
 public class BinaryTree {
 
@@ -82,5 +82,20 @@ public class BinaryTree {
 
         return null;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BinaryTree)) return false;
+
+        BinaryTree that = (BinaryTree) o;
+
+        return getData() == that.getData();
+    }
+
+    @Override
+    public int hashCode() {
+        return getData();
     }
 }

@@ -1,8 +1,9 @@
-package com.paru.trees.binaryTree;
+package com.paru.treesAndGraphs.binaryTree;
 
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class TreePaths {
 
@@ -19,10 +20,11 @@ public class TreePaths {
             return null;
 
         if (root.equals(target)) {
-            List<BinaryTree> path = new LinkedList();
+            List<BinaryTree> path = new LinkedList<BinaryTree>();//
             path.add(root);
             return path;
         }
+        Queue<BinaryTree> q = new LinkedList();
 
         List<BinaryTree> pathLeft = findPath(root.getLeft(), target);
         List<BinaryTree> pathRight = findPath(root.getRight(), target);

@@ -14,7 +14,7 @@ public class MergeSortTest {
         Integer[] input = new Integer[]{3,2,9,4,7,1};
 
         System.out.println(Arrays.toString(input));
-        MergeSortAlgorithm.mergeSort(input);
+       // MergeSortAlgorithm.mergeSort(input);
         System.out.print("risultato: ");
         System.out.println(Arrays.toString(input));
     }

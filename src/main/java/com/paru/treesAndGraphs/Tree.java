@@ -1,4 +1,4 @@
-package com.paru.trees;
+package com.paru.treesAndGraphs;
 
 import java.util.LinkedList;
 import java.util.List;
