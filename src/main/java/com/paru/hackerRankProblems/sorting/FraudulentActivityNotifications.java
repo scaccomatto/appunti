@@ -15,18 +15,18 @@ public class FraudulentActivityNotifications {
     static int activityNotifications(int[] expenditure, int d) {
         // I will consider starting from the element d+1;
 
-        if(d>= expenditure.length)
+        if (d >= expenditure.length)
             return 0;
 
         int start = 0;
-        int end = d-1;
+        int end = d - 1;
         int totalNotifications = 0;
 
-        for(int i=d;i<expenditure.length;i++){
-            start = Math.max(d-i,0);
-            end = Math.min(expenditure.length, i)-1;
+        for (int i = d; i < expenditure.length; i++) {
+            start = Math.max(d - i, 0);
+            end = Math.min(expenditure.length, i) - 1;
             int notification = findMeanSubArray(expenditure, start, end, d, i);
-            totalNotifications+=notification;
+            totalNotifications += notification;
 
         }
 
@@ -35,22 +35,22 @@ public class FraudulentActivityNotifications {
 
     private static int findMeanSubArray(int[] expenditure, int start, int end, int d, int i) {
         //int[] toSort = Arrays.copyOfRange(expenditure, start, end+1);
-        int[] ordered = new int[end+1-start];
-        System.arraycopy(expenditure,start,ordered,start,end+1);
+        int[] ordered = new int[end + 1 - start];
+        System.arraycopy(expenditure, start, ordered, start, end + 1);
         Arrays.sort(ordered);
         mergeSort(ordered);
 
-        int half = d/2;
-        int sendNotification =0;
+        int half = d / 2;
+        int sendNotification = 0;
         double median;
-        if(d%2==0){
-            median = ((double)ordered[half-1]+(double)ordered[half])/2.0;
+        if (d % 2 == 0) {
+            median = ((double) ordered[half - 1] + (double) ordered[half]) / 2.0;
         } else {
-            median = (double)ordered[half];
+            median = (double) ordered[half];
         }
-        double max = 2.0*median;
-        if((double)expenditure[i]>=max){
-            sendNotification=1;
+        double max = 2.0 * median;
+        if ((double) expenditure[i] >= max) {
+            sendNotification = 1;
         }
 
         return sendNotification;
@@ -78,16 +78,16 @@ public class FraudulentActivityNotifications {
         }
     }
 
-    static void mergeSort(int[] arrayToSort){
+    static void mergeSort(int[] arrayToSort) {
 
         Integer[] copy = new Integer[arrayToSort.length];
-        mergeSort(0,arrayToSort.length-1, arrayToSort, copy);
+        mergeSort(0, arrayToSort.length - 1, arrayToSort, copy);
 
     }
 
     private static void mergeSort(int start, int end, int[] arrayToSort, Integer[] copy) {
-        if(start<end) {
-            int middle = (end+start)/ 2;
+        if (start < end) {
+            int middle = (end + start) / 2;
 
             mergeSort(start, middle, arrayToSort, copy);
             mergeSort(middle + 1, end, arrayToSort, copy);
@@ -100,22 +100,22 @@ public class FraudulentActivityNotifications {
 
         copyArray(arrayToSort, copy);
 
-        int left= start;
-        int right = middle+1;
+        int left = start;
+        int right = middle + 1;
         int k = start;
 
-        while(left<=middle && right<=end){
-            if(copy[left]<=copy[right]){
-                arrayToSort[k]=copy[left];
+        while (left <= middle && right <= end) {
+            if (copy[left] <= copy[right]) {
+                arrayToSort[k] = copy[left];
                 left++;
-            }else{
-                arrayToSort[k]=copy[right];
+            } else {
+                arrayToSort[k] = copy[right];
                 right++;
             }
             k++;
         }
-        while(left<=middle){
-            arrayToSort[k]=copy[left];
+        while (left <= middle) {
+            arrayToSort[k] = copy[left];
             left++;
             k++;
         }
@@ -125,8 +125,8 @@ public class FraudulentActivityNotifications {
     }
 
     private static void copyArray(int[] arrayToSort, Integer[] copy) {
-        for(int i=0; i< arrayToSort.length;i++){
-            copy[i]=arrayToSort[i];
+        for (int i = 0; i < arrayToSort.length; i++) {
+            copy[i] = arrayToSort[i];
         }
     }
 }

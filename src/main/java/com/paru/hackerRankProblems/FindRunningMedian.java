@@ -14,7 +14,7 @@ public class FindRunningMedian {
 
     private final static Logger LOGGER = Logger.getLogger(FindRunningMedian.class.getName());
 
-    public static void main(String args[] ) throws Exception {
+    public static void main(String args[]) throws Exception {
         //List<Double> numbers = new ArrayList();
 
         //try (Scanner scanner = new Scanner(System.in)) {
@@ -25,7 +25,7 @@ public class FindRunningMedian {
                 "3\n" +
                 "8\n" +
                 "7";
-        String input2 ="4\n" +
+        String input2 = "4\n" +
                 "5\n" +
                 "15\n" +
                 "1 \n" +
@@ -35,11 +35,11 @@ public class FindRunningMedian {
             int size = scanner.nextInt();
             List<Integer> list = new ArrayList();
 
-            for(int i=0; i< size;i++){
+            for (int i = 0; i < size; i++) {
                 Integer input = scanner.nextInt();
                 list.add(input);
                 Collections.sort(list);
-                printMedian(list,i+1);
+                printMedian(list, i + 1);
             }
 
         } catch (Exception e) {
@@ -47,22 +47,22 @@ public class FindRunningMedian {
         }
     }
 
-    private static void printMedian(List<Integer> numbers, int end){
+    private static void printMedian(List<Integer> numbers, int end) {
 
         //
-        int half = end/2;
-        if(end%2==0){
+        int half = end / 2;
+        if (end % 2 == 0) {
             //Double sum = (list[half].add(list[half-1])).divide(two);
-            Double sum = ((double)numbers.get(half)+(double)numbers.get(half-1))/2.0;
+            Double sum = ((double) numbers.get(half) + (double) numbers.get(half - 1)) / 2.0;
             System.out.println(sum);
-        }else{
+        } else {
             System.out.println(numbers.get(half).doubleValue());
         }
     }
 
 
-    public static void main2 (String[] args) {
-        String input2 ="4\n" +
+    public static void main2(String[] args) {
+        String input2 = "4\n" +
                 "5\n" +
                 "15\n" +
                 "1 \n" +
@@ -72,11 +72,11 @@ public class FindRunningMedian {
             int size = scanner.nextInt();
             int[] list = new int[size];
 
-            for(int i=0; i< size;i++){
+            for (int i = 0; i < size; i++) {
                 int input = scanner.nextInt();
-                list[i]=input;
+                list[i] = input;
                 Arrays.sort(list);
-                printMedian(list,i+1);
+                printMedian(list, i + 1);
             }
 
         } catch (Exception e) {
@@ -84,16 +84,16 @@ public class FindRunningMedian {
         }
     }
 
-    private void setUp(int[] numbers){
-        for(int i=0; i<numbers.length;i++){
-            numbers[i]=Integer.MAX_VALUE;
+    private void setUp(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = Integer.MAX_VALUE;
         }
     }
 
-    private static void insertionSort(int toInsert, int[] numbers){
+    private static void insertionSort(int toInsert, int[] numbers) {
 
-        for(int i=0; i<numbers.length;i++){
-            if(toInsert<numbers[i]){
+        for (int i = 0; i < numbers.length; i++) {
+            if (toInsert < numbers[i]) {
                 int temp = numbers[i];
                 numbers[i] = toInsert;
             }
@@ -101,15 +101,15 @@ public class FindRunningMedian {
 
     }
 
-    private static void printMedian(int[] numbers, int end){
+    private static void printMedian(int[] numbers, int end) {
 
         //
-        int half = (end-1)/2;
-        if(end%2==0){
+        int half = (end - 1) / 2;
+        if (end % 2 == 0) {
             //Double sum = (list[half].add(list[half-1])).divide(two);
-            int sum = (numbers[half]+numbers[half-1])/2;
+            int sum = (numbers[half] + numbers[half - 1]) / 2;
             System.out.println(sum);
-        }else{
+        } else {
             System.out.println(numbers[half]);
         }
     }

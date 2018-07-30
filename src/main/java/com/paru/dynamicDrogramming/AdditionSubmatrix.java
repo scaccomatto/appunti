@@ -25,22 +25,22 @@ public class AdditionSubmatrix {
             //try (Scanner scanner = new Scanner(System.in)) {
             int testNumber = scanner.nextInt();
 
-            for(int i=0; i<testNumber;i++){
+            for (int i = 0; i < testNumber; i++) {
                 int rowSize = scanner.nextInt();
                 int colSize = scanner.nextInt();
                 int[][] matrix = new int[rowSize][colSize];
-                for(int row=0;row<rowSize;row++){
-                    for(int col=0;col<colSize;col++){
-                        matrix[row][col]=scanner.nextInt();
+                for (int row = 0; row < rowSize; row++) {
+                    for (int col = 0; col < colSize; col++) {
+                        matrix[row][col] = scanner.nextInt();
                     }
                 }
 
-                int topLeftRow = scanner.nextInt()-1;
-                int topLeftCol = scanner.nextInt()-1;
-                int bottomRightRow = scanner.nextInt()-1;
-                int bottomRightCol = scanner.nextInt()-1;
+                int topLeftRow = scanner.nextInt() - 1;
+                int topLeftCol = scanner.nextInt() - 1;
+                int bottomRightRow = scanner.nextInt() - 1;
+                int bottomRightCol = scanner.nextInt() - 1;
 
-                System.out.println(calculateSumSubMatrix(topLeftRow, topLeftCol,bottomRightRow,bottomRightCol, matrix , rowSize, colSize));
+                System.out.println(calculateSumSubMatrix(topLeftRow, topLeftCol, bottomRightRow, bottomRightCol, matrix, rowSize, colSize));
             }
 
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class AdditionSubmatrix {
         }
     }
 
-    private static int calculateSumSubMatrix(int topLeftRow, int topLeftCol,int bottomRightRow,int bottomRightCol, int[][] matrix, int rowSixe, int colSize) {
+    private static int calculateSumSubMatrix(int topLeftRow, int topLeftCol, int bottomRightRow, int bottomRightCol, int[][] matrix, int rowSixe, int colSize) {
 
         int startSubMatrixRow = topLeftRow;
         int endSubMatrixRow = bottomRightRow;
@@ -57,8 +57,8 @@ public class AdditionSubmatrix {
 
         int sum = 0;
 
-        for(int row = startSubMatrixRow; row <=endSubMatrixRow;row++ ){
-            for(int col = startSubMatrixCol; col<=endSubMatrixCol;col++){
+        for (int row = startSubMatrixRow; row <= endSubMatrixRow; row++) {
+            for (int col = startSubMatrixCol; col <= endSubMatrixCol; col++) {
                 sum = sum + matrix[row][col];
             }
         }

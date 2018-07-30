@@ -9,7 +9,7 @@ import static java.util.Comparator.nullsLast;
 
 public class NodeHelper {
 
-    private static Comparator<Node> minDistance = comparing(Node:: getDistance, nullsLast(naturalOrder()));
+    private static Comparator<Node> minDistance = comparing(Node::getDistance, nullsLast(naturalOrder()));
 
     public static Node commonAncestorWithParent(Node root, Node target) {
 
@@ -46,7 +46,7 @@ public class NodeHelper {
 
         while (!queue.isEmpty()) {
             Node target = queue.remove();
-            System.out.print(target.toString()+" ");
+            System.out.print(target.toString() + " ");
 
             for (Node adj : target.getAdj()) {
 
@@ -63,8 +63,8 @@ public class NodeHelper {
         if (root == null) {
             return;
         }
-        if(!root.isVisited())
-            System.out.print(root.toString()+" ");
+        if (!root.isVisited())
+            System.out.print(root.toString() + " ");
 
         root.setVisited(true);
 
@@ -86,13 +86,13 @@ public class NodeHelper {
                 System.out.print(path.get(i));
             }
             System.out.println("");
-            List<Node> tmp= new ArrayList<>();
+            List<Node> tmp = new ArrayList<>();
             tmp.addAll(path);
             records.add(tmp);
         } else {
-            for (Node w: v.getAdj()) {
+            for (Node w : v.getAdj()) {
                 if (!w.isVisited()) {
-                    dfsPathsList( w, d, path, records);
+                    dfsPathsList(w, d, path, records);
                 }
 
             }
@@ -101,7 +101,7 @@ public class NodeHelper {
         v.setVisited(false);
     }
 
-    public static List<Node> shortestPath(Node root, Node target, List<Node> nodes){
+    public static List<Node> shortestPath(Node root, Node target, List<Node> nodes) {
 
         //set up root distance
         root.setDistance(0);
@@ -112,11 +112,11 @@ public class NodeHelper {
 
         toVisit.addAll(nodes);
 
-        while(!toVisit.isEmpty()){
+        while (!toVisit.isEmpty()) {
 
             Node node = findMinDistanceNode(toVisit);
 
-            for(Node adj: node.getAdj()){
+            for (Node adj : node.getAdj()) {
                 updateDistance(node, adj);
             }
             toVisit.remove(node);
@@ -128,18 +128,18 @@ public class NodeHelper {
 
         shortestPathTarget.add(visited.get(visited.indexOf(target)));
         Node temp = shortestPathTarget.get(0);
-        System.out.println("target distance ="+temp.getDistance());
-        while(temp.getParent()!= null){
-            shortestPathTarget.add(0,temp.getParent());
+        System.out.println("target distance =" + temp.getDistance());
+        while (temp.getParent() != null) {
+            shortestPathTarget.add(0, temp.getParent());
             temp = temp.getParent();
         }
-        shortestPathTarget.forEach(n ->System.out.print(n.toString()));
+        shortestPathTarget.forEach(n -> System.out.print(n.toString()));
         return shortestPathTarget;
     }
 
     private static void updateDistance(Node node, Node adj) {
-        int newDistance = node.getDistance()+1;
-        if(adj.getDistance()>newDistance){
+        int newDistance = node.getDistance() + 1;
+        if (adj.getDistance() > newDistance) {
             adj.setDistance(newDistance);
             adj.setParent(node);
         }

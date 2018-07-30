@@ -22,7 +22,7 @@ public class MostVisitedCity {
                 "Miami\n" +
                 "Barcelona";
 
-        String input2="5\n" +
+        String input2 = "5\n" +
                 "Singapore\n" +
                 "Bangkok\n" +
                 "Singapore\n" +
@@ -39,23 +39,23 @@ public class MostVisitedCity {
             //try (Scanner scanner = new Scanner(System.in)) {
             int sizeList = scanner.nextInt();
 
-            Map<String,Integer> cities = new LinkedHashMap<>();
-            for(int i=0; i<sizeList;i++){
+            Map<String, Integer> cities = new LinkedHashMap<>();
+            for (int i = 0; i < sizeList; i++) {
                 String city = scanner.next();
-                if(cities.containsKey(city)){
-                    cities.put(city,cities.get(city)+1);
+                if (cities.containsKey(city)) {
+                    cities.put(city, cities.get(city) + 1);
                 } else {
                     cities.put(city, 1);
                 }
             }
             int max = 0;
-            String cityMostVisited ="";
+            String cityMostVisited = "";
 
-            for(Map.Entry<String,Integer> entry :cities.entrySet()){
+            for (Map.Entry<String, Integer> entry : cities.entrySet()) {
 
-                if(entry.getValue()>max){
+                if (entry.getValue() > max) {
                     max = entry.getValue();
-                    cityMostVisited=entry.getKey();
+                    cityMostVisited = entry.getKey();
                 }
 
             }

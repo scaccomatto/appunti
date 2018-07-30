@@ -13,10 +13,8 @@ public class QHeap {
     private final static Logger LOGGER = Logger.getLogger(QHeap.class.getName());
 
 
-
-
     public static void main(String[] args) {
-        String test0="22\n" +
+        String test0 = "22\n" +
                 "1 286789035\n" +
                 "1 255653921\n" +
                 "1 274310529\n" +
@@ -42,7 +40,7 @@ public class QHeap {
 
         PriorityQueue<Long> prq = new PriorityQueue<Long>();
         try (Scanner scanner = new Scanner(new ByteArrayInputStream(test0.getBytes(StandardCharsets.UTF_8)))) {
-        //try (Scanner scanner = new Scanner(System.in)) {
+            //try (Scanner scanner = new Scanner(System.in)) {
             int queries = scanner.nextInt();
 
             for (int i = 0; i < queries; i++) {

@@ -12,21 +12,21 @@ public class StringsUtils {
 
 
     //NB! questo fa lo split con il match della regex(cioe' spazio se spazio, pipe se pipe etc)
-    public static Stream getStreamOfStringFromRegex(String regex, String input){
+    public static Stream getStreamOfStringFromRegex(String regex, String input) {
 
         return Pattern.compile(regex).splitAsStream(input);
 
     }
 
     //NB! questo ritrna la lista della selezione della regex
-    public static List<String> matchStringRegex(String regex, String input){
+    public static List<String> matchStringRegex(String regex, String input) {
 
         Pattern pattern = Pattern.compile(regex, CASE_INSENSITIVE);
 
         Matcher match = pattern.matcher(input);
-        List<String>  results = new LinkedList<>();
+        List<String> results = new LinkedList<>();
 
-        while(match.find()){
+        while (match.find()) {
             results.add(match.group());
         }
 

@@ -8,7 +8,7 @@ public class Tree {
     private int data;
     private List<Tree> children;
 
-    public Tree (int initializationData){
+    public Tree(int initializationData) {
         this.data = initializationData;
         children = new LinkedList<>();
     }
@@ -21,19 +21,19 @@ public class Tree {
         return children;
     }
 
-    public void addChildren(Tree futureSon){
+    public void addChildren(Tree futureSon) {
         children.add(futureSon);
     }
 
-    public void printPreOrder(){
+    public void printPreOrder() {
         preOrder(this);
     }
 
-    private void preOrder(Tree t){
-        if(t==null)
+    private void preOrder(Tree t) {
+        if (t == null)
             return;
         System.out.println(t.data);
-        for(Tree son: children){
+        for (Tree son : children) {
             preOrder(son);
         }
     }

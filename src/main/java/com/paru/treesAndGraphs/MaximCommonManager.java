@@ -107,7 +107,7 @@ class EmployedHelper {
         return null;
     }
 
-    static final Employed findEmployedByNameDFS(Employed root, String name){
+    static final Employed findEmployedByNameDFS(Employed root, String name) {
 
         if (root == null)
             return null;
@@ -116,9 +116,9 @@ class EmployedHelper {
             return root;
         }
         Employed found = null;
-        for(Employed managed: root.getManagedEmployed()){
+        for (Employed managed : root.getManagedEmployed()) {
             found = findEmployedByNameDFS(managed, name);
-            if(found!= null)
+            if (found != null)
                 return found;
         }
         return null;

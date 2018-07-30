@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
 
 
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,7 +20,6 @@ public class SparseArrays {
     private final static Logger LOGGER = Logger.getLogger(SparseArrays.class.getName());
 
     public static void main(String[] args) {
-
 
 
         String input = "4\n" +
@@ -41,14 +39,14 @@ public class SparseArrays {
 
             setUp(strings, queries, scanner);
 
-            List<String> regexQueries = queries.stream().map(s -> "\\b"+s+"\\b").collect(Collectors.toList());
+            List<String> regexQueries = queries.stream().map(s -> "\\b" + s + "\\b").collect(Collectors.toList());
 
-            for(String r: regexQueries){
+            for (String r : regexQueries) {
                 Pattern pattern = Pattern.compile(r, CASE_INSENSITIVE);
 
                 Matcher match = pattern.matcher(strings.toString());
                 int count = 0;
-                while(match.find()){
+                while (match.find()) {
                     count++;
                 }
                 System.out.println(count);

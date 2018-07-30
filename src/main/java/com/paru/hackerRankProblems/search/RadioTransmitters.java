@@ -67,20 +67,20 @@ public class RadioTransmitters {
         }
     }
 
-    private static int dx(List<Integer> array, int index){
-        if(index+1==array.size()){
+    private static int dx(List<Integer> array, int index) {
+        if (index + 1 == array.size()) {
             return 0;
-        }else{
-            return Integer.sum(array.get(index+1), -array.get(index));
+        } else {
+            return Integer.sum(array.get(index + 1), -array.get(index));
 
         }
     }
 
-    private static int sx(List<Integer> array, int index){
-        if(index==0){
+    private static int sx(List<Integer> array, int index) {
+        if (index == 0) {
             return 0;
-        }else{
-            return Integer.sum(array.get(index), -array.get(index-1));
+        } else {
+            return Integer.sum(array.get(index), -array.get(index - 1));
         }
     }
 

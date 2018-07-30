@@ -8,9 +8,9 @@ public class BFSGraph {
     public static void search(Node origin) {
 
         Queue queue = new ConcurrentLinkedQueue();
-       // origin.visited = true;
+        // origin.visited = true;
         visit(origin);
-       // origin.distance = 0;
+        // origin.distance = 0;
 
         queue.add(origin);
 

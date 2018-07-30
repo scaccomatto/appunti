@@ -21,14 +21,14 @@ public class TreeSamples {
         //TreePaths.printPath(input, rl);
 
         //BinaryTree result = BinaryTreeHelper.searchNode(5, input);
-        BinaryTree commonAncestor = BinaryTreeHelper.lowestCommonAncestor(input,9,123);
-        BinaryTree commonAncestor2 = BinaryTreeHelper.commonAncestor2(input,p,q);
+        BinaryTree commonAncestor = BinaryTreeHelper.lowestCommonAncestor(input, 9, 123);
+        BinaryTree commonAncestor2 = BinaryTreeHelper.commonAncestor2(input, p, q);
 
-        System.out.println("max= "+BinaryTreeHelper.findMax(input));
-        System.out.println("balanced= "+BinaryTreeHelper.isBalanced(input));
-        System.out.println("commonAnchestor= "+commonAncestor.getData());
-        System.out.println("commonAnchestor2= "+commonAncestor2.getData());
-        System.out.println("sqrt= "+Math.sqrt(9.0));
+        System.out.println("max= " + BinaryTreeHelper.findMax(input));
+        System.out.println("balanced= " + BinaryTreeHelper.isBalanced(input));
+        System.out.println("commonAnchestor= " + commonAncestor.getData());
+        System.out.println("commonAnchestor2= " + commonAncestor2.getData());
+        System.out.println("sqrt= " + Math.sqrt(9.0));
 
 
     }

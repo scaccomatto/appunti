@@ -22,7 +22,7 @@ public class RecursiveDigitSum {
             int k = scanner.nextInt();
 
 
-            long calc = getSumDigits(n)*k;
+            long calc = getSumDigits(n) * k;
             System.out.println(getSuperDigit(calc));
 
         } catch (Exception e) {
@@ -32,7 +32,7 @@ public class RecursiveDigitSum {
 
     private static long getSuperDigit(Long calc) {
 
-        if(calc <10)
+        if (calc < 10)
             return calc;
         String cifre = calc.toString();
         long result = getSumDigits(cifre);

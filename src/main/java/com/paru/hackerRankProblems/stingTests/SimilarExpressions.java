@@ -21,19 +21,19 @@ public class SimilarExpressions {
 
 
     public static void main(String[] args) {
-        String input ="5\n" +
+        String input = "5\n" +
                 "r+c+a+b+c+d+o\n" +
-                "(r+(c+(a+b+c)+d)+o)\n"+
+                "(r+(c+(a+b+c)+d)+o)\n" +
 
                 "-a+b+c\n" +
-                "b+c-a\n"+
+                "b+c-a\n" +
                 "(a-(b-c))\n" +
                 "a-b+c\n" +
                 "-d+d-p+a\n" +
-                "d+a-p-d\n"+
+                "d+a-p-d\n" +
                 "a-b-(c-d)\n" +
                 "a-b-c-d";
-        String input2 ="1\n"+
+        String input2 = "1\n" +
                 "(-(-(-(-(a+b+c)))))\n" +
                 "a+b+c";
 
@@ -49,16 +49,16 @@ public class SimilarExpressions {
 
                 String convertedE1 = convertExpression(firstExpression);
                 String convertedE2 = convertExpression(secondExpression);
-                convertedE1=addingSign(convertedE1);
-                convertedE2=addingSign(convertedE2);
+                convertedE1 = addingSign(convertedE1);
+                convertedE2 = addingSign(convertedE2);
 
 //                List<Addendum> a = getAddendumOrdered(convertedE1);
 //                List<Addendum> b = getAddendumOrdered(convertedE2);
 
-                String convertedExpressionOrdered=getAddendumOrdered(convertedE1).stream().map(e->e.getSign().toString()+e.getAddendum().toString()).reduce((acc, e) -> acc  + e).get();
-                String expressionToMatchOrdered=getAddendumOrdered(convertedE2).stream().map(e->e.getSign().toString()+e.getAddendum().toString()).reduce((acc, e) -> acc  + e).get();
+                String convertedExpressionOrdered = getAddendumOrdered(convertedE1).stream().map(e -> e.getSign().toString() + e.getAddendum().toString()).reduce((acc, e) -> acc + e).get();
+                String expressionToMatchOrdered = getAddendumOrdered(convertedE2).stream().map(e -> e.getSign().toString() + e.getAddendum().toString()).reduce((acc, e) -> acc + e).get();
 
-                System.out.println(convertedExpressionOrdered+" "+expressionToMatchOrdered);
+                System.out.println(convertedExpressionOrdered + " " + expressionToMatchOrdered);
 
                 if (convertedExpressionOrdered.equalsIgnoreCase(expressionToMatchOrdered)) {
                     System.out.println("YES");
@@ -73,21 +73,21 @@ public class SimilarExpressions {
         }
     }
 
-    private static List<Addendum> getAddendumOrdered(String target){
+    private static List<Addendum> getAddendumOrdered(String target) {
         char[] expression = target.toCharArray();
         List<Addendum> ad = new LinkedList<>();
-        for (int j = 0; j < expression.length-1; j++) {
-            if(piu.equals(expression[j])||meno.equals(expression[j])){
-                ad.add(new Addendum(expression[j], expression[j+1]));
+        for (int j = 0; j < expression.length - 1; j++) {
+            if (piu.equals(expression[j]) || meno.equals(expression[j])) {
+                ad.add(new Addendum(expression[j], expression[j + 1]));
             }
         }
         //Comparator<Addendum> alfabetico = (Addendum c1,Addendum c2)->(c1.getAddendum().compareTo(c2.getAddendum()));
         return ad.stream().sorted().collect(Collectors.toList());
     }
 
-    private static String addingSign(String target){
-        if(!target.substring(0,1).equalsIgnoreCase("-")){
-            return "+"+target;
+    private static String addingSign(String target) {
+        if (!target.substring(0, 1).equalsIgnoreCase("-")) {
+            return "+" + target;
         }
         return target;
     }
@@ -112,7 +112,7 @@ public class SimilarExpressions {
                 for (int k = start.getIndex(); k <= j; k++) {
                     if (inizioTonda.equals(expression[k]) || fineTonda.equals(expression[k])) {
                         expression[k] = ' ';
-                    } else if(meno.equals(sign)){
+                    } else if (meno.equals(sign)) {
                         if (meno.equals(expression[k])) {
                             expression[k] = piu;
                         } else if (piu.equals(expression[k])) {
@@ -149,7 +149,7 @@ class Parentesi {
 
 }
 
-class Addendum implements Comparable<Addendum>{
+class Addendum implements Comparable<Addendum> {
     private Character sign;
     private Character addendum;
 
@@ -168,8 +168,8 @@ class Addendum implements Comparable<Addendum>{
 
     @Override
     public int compareTo(Addendum c2) {
-        String a =this.getAddendum().toString()+this.getSign().toString();
-        String b =c2.getAddendum().toString()+c2.getSign().toString();
+        String a = this.getAddendum().toString() + this.getSign().toString();
+        String b = c2.getAddendum().toString() + c2.getSign().toString();
 
         return a.compareTo(b);
     }

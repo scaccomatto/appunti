@@ -64,6 +64,7 @@ public class BinaryTreeHelper {
 
         return Math.max(getHeight(tree.getLeft()), getHeight(tree.getRight())) + 1;
     }
+
     //O(n Long n)
     public static boolean isBalanced(BinaryTree tree) {
         if (tree == null)
@@ -78,58 +79,59 @@ public class BinaryTreeHelper {
         }
     }
 
-    public static int checkHeight(BinaryTree tree){
-        if(tree==null)
+    public static int checkHeight(BinaryTree tree) {
+        if (tree == null)
             return 0;
 
         int leftHeight = checkHeight(tree.getLeft());
-        if(leftHeight==-1){
+        if (leftHeight == -1) {
             return -1;//not balanced
         }
 
         int rightHeight = checkHeight(tree.getRight());
-        if(rightHeight==-1){
+        if (rightHeight == -1) {
             return -1;//not balanced
         }
 
         //check current node is balanced
-        int heightDiff = Math.abs(leftHeight-rightHeight);
-        if(heightDiff>1){
+        int heightDiff = Math.abs(leftHeight - rightHeight);
+        if (heightDiff > 1) {
             return -1;
         } else {
-            return Math.max(leftHeight, rightHeight) +1;
+            return Math.max(leftHeight, rightHeight) + 1;
         }
     }
+
     // O(N)
-    public static boolean isBalanced2(BinaryTree tree){
-        if(checkHeight(tree)==-1){
+    public static boolean isBalanced2(BinaryTree tree) {
+        if (checkHeight(tree) == -1) {
             return false;
         } else {
             return true;
         }
     }
 
-    public static BinaryTree commonAncestor2(BinaryTree tree, BinaryTree p, BinaryTree q){
-        if(!covers(tree,p)||!covers(tree, q)){
+    public static BinaryTree commonAncestor2(BinaryTree tree, BinaryTree p, BinaryTree q) {
+        if (!covers(tree, p) || !covers(tree, q)) {
             return null;
         }
-        return ancestorHelper(tree, p,q);
+        return ancestorHelper(tree, p, q);
 
     }
 
     private static BinaryTree ancestorHelper(BinaryTree tree, BinaryTree p, BinaryTree q) {
-        if(tree == null) {
+        if (tree == null) {
             return null;
-        } else if(tree.equals(p)){
+        } else if (tree.equals(p)) {
             return p;
-        } else if(tree.equals(q)){
+        } else if (tree.equals(q)) {
             return q;
         }
 
-        boolean pIsOnLeft = covers(tree.getLeft(),p);
-        boolean qIsOnLeft = covers(tree.getLeft(),q);
+        boolean pIsOnLeft = covers(tree.getLeft(), p);
+        boolean qIsOnLeft = covers(tree.getLeft(), q);
 
-        if(pIsOnLeft!=qIsOnLeft){
+        if (pIsOnLeft != qIsOnLeft) {
             return tree;
         }
 
@@ -141,9 +143,9 @@ public class BinaryTreeHelper {
     }
 
     private static boolean covers(BinaryTree tree, BinaryTree p) {
-        if(tree == null) return false;
-        if(tree.equals(p) ) return true;
-        return covers(tree.getLeft(),p) || covers(tree.getRight(),p);
+        if (tree == null) return false;
+        if (tree.equals(p)) return true;
+        return covers(tree.getLeft(), p) || covers(tree.getRight(), p);
     }
 
 }

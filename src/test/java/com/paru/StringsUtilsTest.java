@@ -11,29 +11,29 @@ import java.util.stream.Stream;
 public class StringsUtilsTest {
 
     @Test
-    public void printResultMatchFromRegex(){
+    public void printResultMatchFromRegex() {
 
         String input = "Reya is is the the best player in eye eye game";
         String regex = "[aeiou]";
 
         List<String> output = StringsUtils.matchStringRegex(regex, input);
-        output.forEach(s-> System.out.println(s));
+        output.forEach(s -> System.out.println(s));
     }
 
     @Test
-    public void printListStringSeparatedBySpace(){
+    public void printListStringSeparatedBySpace() {
 
-        String input ="I want a list where all the words are displayed one by one";
+        String input = "I want a list where all the words are displayed one by one";
 
         List<String> output = StringsUtils.matchStringRegex(RegexPatterns.WORD, input);
 
-        output.forEach(s->System.out.println(s+"|"));
+        output.forEach(s -> System.out.println(s + "|"));
     }
 
     @Test
-    public void printStreamSeparatedBySpace(){
-        String input ="I want a list where all the words are displayed one by one";
-        Stream st =StringsUtils.getStreamOfStringFromRegex(RegexPatterns.SPACE, input);
-        st.forEach(s->System.out.println(s+"|"));
+    public void printStreamSeparatedBySpace() {
+        String input = "I want a list where all the words are displayed one by one";
+        Stream st = StringsUtils.getStreamOfStringFromRegex(RegexPatterns.SPACE, input);
+        st.forEach(s -> System.out.println(s + "|"));
     }
 }

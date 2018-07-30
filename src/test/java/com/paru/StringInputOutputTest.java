@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 public class StringInputOutputTest {
 
     @Test
-    public void testInput(){
+    public void testInput() {
 
         String input = "primo secondo \n nuova linea";
 

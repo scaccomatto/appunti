@@ -30,20 +30,20 @@ public class MedianUpdates {
         try (Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)))) {
 
             int totalOperations = scanner.nextInt();
-            for(int i=0; i<totalOperations;i++){
+            for (int i = 0; i < totalOperations; i++) {
                 String operation = scanner.next();
                 Integer value = scanner.nextInt();
 
-                switch(operation){
+                switch (operation) {
                     case add:
-                            numbers.add(value);
-                            calculateMedian(numbers);
+                        numbers.add(value);
+                        calculateMedian(numbers);
 
                         break;
                     case remove:
-                        if(!numbers.contains(value)){
+                        if (!numbers.contains(value)) {
                             System.out.println("Wrong!");
-                        }else{
+                        } else {
                             numbers.remove(value);
                             calculateMedian(numbers);
                         }
@@ -58,21 +58,21 @@ public class MedianUpdates {
         }
     }
 
-    private static void calculateMedian(List<Integer> numbers){
+    private static void calculateMedian(List<Integer> numbers) {
         Collections.sort(numbers);
-        int size=numbers.size();
-        if(size%2==0 && !numbers.isEmpty()){
-            int half = size/2;
-            Integer sum = numbers.get(half)+numbers.get(half-1);
+        int size = numbers.size();
+        if (size % 2 == 0 && !numbers.isEmpty()) {
+            int half = size / 2;
+            Integer sum = numbers.get(half) + numbers.get(half - 1);
 
-            if(sum%2==0){
-                System.out.println(sum/2);
-            }else{
-                Double result = ((double)sum)/2.0;
+            if (sum % 2 == 0) {
+                System.out.println(sum / 2);
+            } else {
+                Double result = ((double) sum) / 2.0;
                 System.out.println(result);
             }
-        } else if(size%2!=0 && !numbers.isEmpty()){
-            int half = size/2;
+        } else if (size % 2 != 0 && !numbers.isEmpty()) {
+            int half = size / 2;
             Integer first = numbers.get(half);
             System.out.println(first);
         } else {

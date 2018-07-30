@@ -33,7 +33,7 @@ public class StringRegexTags {
 
 
             int testCases = Integer.parseInt(in.nextLine());
-            while(testCases>0){
+            while (testCases > 0) {
                 String line = in.nextLine();
 
 
@@ -47,25 +47,24 @@ public class StringRegexTags {
         }
     }
 
-    private static void checkTags(String line){
+    private static void checkTags(String line) {
         List<String> startTags = StringsUtils.matchStringRegex(startTag, line);
 
-        if(startTags.isEmpty() && !line.isEmpty()){
+        if (startTags.isEmpty() && !line.isEmpty()) {
             System.out.println(line);
             return;
         } else {
-            String tagEnd = "</"+startTags.get(0).substring(1);
+            String tagEnd = "</" + startTags.get(0).substring(1);
 
-            if(!StringsUtils.matchStringRegex(tagEnd, line).isEmpty()){
-                Pattern p = Pattern.compile("[^"+startTags.get(0)+"](.*)[^"+tagEnd+"]");
+            if (!StringsUtils.matchStringRegex(tagEnd, line).isEmpty()) {
+                Pattern p = Pattern.compile("[^" + startTags.get(0) + "](.*)[^" + tagEnd + "]");
                 Matcher m = p.matcher(line);
-                if(m.find()){
+                if (m.find()) {
                     checkTags(m.group());
                 }
             }
 
         }
-
 
 
     }

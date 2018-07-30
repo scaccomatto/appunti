@@ -16,7 +16,7 @@ public class FindPickSolution {
                 "11\n" +
                 "1 2 3 4 5 6 5 4 3 2 1\n" +
                 "9\n" +
-                "1 9 8 7 6 5 4 3 1 \n"+
+                "1 9 8 7 6 5 4 3 1 \n" +
                 "9\n" +
                 "1 3 4 5 7 8 9 5 2 ";
 
@@ -51,20 +51,20 @@ public class FindPickSolution {
     private static int findHighestN(int[] numbers) {
         int max = Integer.MIN_VALUE;
 
-        if(numbers.length==1){
+        if (numbers.length == 1) {
             return numbers[0];
         }
 
-        for(int j=1; j<numbers.length-1;j++){
-            if(numbers[j] > numbers[j - 1] && numbers[j] > numbers[j + 1]){
+        for (int j = 1; j < numbers.length - 1; j++) {
+            if (numbers[j] > numbers[j - 1] && numbers[j] > numbers[j + 1]) {
                 return numbers[j];
             }
         }
-        if(numbers[0]>numbers[1]){
+        if (numbers[0] > numbers[1]) {
             return numbers[0];
         }
-        if(numbers[numbers.length-1]>numbers[numbers.length-2])
-            return numbers[numbers.length-1];
+        if (numbers[numbers.length - 1] > numbers[numbers.length - 2])
+            return numbers[numbers.length - 1];
 
         return 0;
     }
@@ -79,11 +79,11 @@ public class FindPickSolution {
         int start = 0;
         while (!found) {
 
-            target = (end + start)/2;
+            target = (end + start) / 2;
             if (numbers[target] > numbers[target - 1] && numbers[target] > numbers[target + 1]) {
                 found = true;
             } else if (numbers[target] < numbers[target + 1]) {
-                 start = target;
+                start = target;
             } else {
                 end = target;
             }

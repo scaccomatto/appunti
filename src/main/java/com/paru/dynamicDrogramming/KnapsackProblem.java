@@ -20,17 +20,17 @@ public class KnapsackProblem {
 
     public static int knappSackDynamicProgrammingSolution(int[] weight, int[] values, int capacity, int index) {
 
-        int capacityMatrix[][] = new int[index+1][capacity+1];
+        int capacityMatrix[][] = new int[index + 1][capacity + 1];
 
-        for(int i=0;i<=index;i++){
-            for(int w=0;w<=capacity;w++){
+        for (int i = 0; i <= index; i++) {
+            for (int w = 0; w <= capacity; w++) {
                 //
-                if (i==0 || w==0) {
+                if (i == 0 || w == 0) {
                     capacityMatrix[i][w] = 0;
-                }else if(weight[i-1]<=w){
-                    capacityMatrix[i][w] = Math.max( values[i-1]+capacityMatrix[i-1][w -weight[i-1]] ,capacityMatrix[i-1][w]);
+                } else if (weight[i - 1] <= w) {
+                    capacityMatrix[i][w] = Math.max(values[i - 1] + capacityMatrix[i - 1][w - weight[i - 1]], capacityMatrix[i - 1][w]);
                 } else {
-                    capacityMatrix[i][w] = capacityMatrix[i-1][w];
+                    capacityMatrix[i][w] = capacityMatrix[i - 1][w];
                 }
             }
         }

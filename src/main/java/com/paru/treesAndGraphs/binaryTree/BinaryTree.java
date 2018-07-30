@@ -4,9 +4,9 @@ public class BinaryTree {
 
     private int data;
     private BinaryTree left;
-    private  BinaryTree right;
+    private BinaryTree right;
 
-    public BinaryTree(int data){
+    public BinaryTree(int data) {
         this.data = data;
     }
 
@@ -30,15 +30,15 @@ public class BinaryTree {
         this.right = right;
     }
 
-    public BinaryTree getNodeByData(int data){
+    public BinaryTree getNodeByData(int data) {
 
         return searchNode(data, this);
     }
 
-    public void setNode(int data){
+    public void setNode(int data) {
         BinaryTree target = getNodeByData(data);
 
-        if(target == null) {
+        if (target == null) {
             insertNode(data, this);
         }
     }
@@ -47,7 +47,7 @@ public class BinaryTree {
 
         if (data > binaryTree.getData()) {
 
-            if(binaryTree.getRight()==null){
+            if (binaryTree.getRight() == null) {
                 binaryTree.setRight(new BinaryTree(data));
             } else {
                 insertNode(data, binaryTree.getRight());
@@ -55,7 +55,7 @@ public class BinaryTree {
         }
 
         if (data < binaryTree.getData()) {
-            if(binaryTree.getLeft()==null){
+            if (binaryTree.getLeft() == null) {
                 binaryTree.setLeft(new BinaryTree(data));
             } else {
                 insertNode(data, binaryTree.getLeft());
@@ -68,7 +68,7 @@ public class BinaryTree {
         if (tree == null)
             return null;
 
-        if(data == tree.getData()){
+        if (data == tree.getData()) {
             return tree;
         }
 

@@ -5,9 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class NodeMain {
-    private static List<Node> toTest= new LinkedList<>();
+    private static List<Node> toTest = new LinkedList<>();
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Node root = setUp();
 
@@ -18,16 +18,16 @@ public class NodeMain {
         //NodeHelper.visitDFS(root);
         //NodeHelper.visitBFS(root);
         NodeHelper.dfsPathsList(root, d, path, records);
-        for(List<Node> l : records){
+        for (List<Node> l : records) {
             l.forEach(p -> System.out.print(p.toString()));
             System.out.println();
         }
         root = setUp();
-        NodeHelper.shortestPath(root,d,toTest);
+        NodeHelper.shortestPath(root, d, toTest);
 
     }
 
-    private static Node setUp(){
+    private static Node setUp() {
 
         Node root = new Node(1);
         Node due = new Node(2);

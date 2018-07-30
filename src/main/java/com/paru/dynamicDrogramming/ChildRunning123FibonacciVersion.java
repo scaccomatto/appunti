@@ -28,33 +28,33 @@ public class ChildRunning123FibonacciVersion {
         }
     }
 
-    private static int countWaysRecursive(int n){
-        if(n<0){
+    private static int countWaysRecursive(int n) {
+        if (n < 0) {
             return 0;
-        } else if(n==0){
+        } else if (n == 0) {
             return 1;
         } else {
-            return countWaysRecursive(n-1)+countWaysRecursive(n-2)+countWaysRecursive(n-3);
+            return countWaysRecursive(n - 1) + countWaysRecursive(n - 2) + countWaysRecursive(n - 3);
         }
     }
 
     private static int countWays(int n) {
 
-        int[] memo = new int[n+1];
+        int[] memo = new int[n + 1];
         Arrays.fill(memo, -1);
         return countWaysWithArray(memo, n);
     }
 
     private static int countWaysWithArray(int[] memo, int n) {
 
-        if(n<0){
+        if (n < 0) {
             return 0;
-        } else if (n==0){
+        } else if (n == 0) {
             return 1;
-        } else if(memo[n]>-1){
+        } else if (memo[n] > -1) {
             return memo[n];
         } else {
-            memo[n] = countWaysWithArray(memo,n-1)+ countWaysWithArray(memo, n-2)+countWaysWithArray(memo, n-3);
+            memo[n] = countWaysWithArray(memo, n - 1) + countWaysWithArray(memo, n - 2) + countWaysWithArray(memo, n - 3);
             return memo[n];
         }
 

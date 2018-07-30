@@ -2,37 +2,31 @@ package com.paru.stringsUtils;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CharAndStings {
 
-    public static void main(String[] args){
-        convertFormStringToChar();
-        convertStringToStreamCharAndReverse();
-    }
+    private static Logger logger = LoggerFactory.getLogger( CharAndStings.class );
 
-    public static void convertFormStringToChar(){
-        String test = "test";
+
+    public static String convertFormStringToCharBackToString(String test) {
+
         char[] converted = test.toCharArray();
-
         String revert = new String(converted);
-        assert(test.equalsIgnoreCase(revert));
+
+        assert (test.equalsIgnoreCase(revert));
+
+        return revert;
     }
 
-    public static void convertStringToStreamCharAndReverse(){
+    public static void convertStringToStreamCharAndReverse(String test) {
 
-        String test = "test";
-        char[] converted = test.toCharArray();
+        Stream<Character> charStream = test.chars().mapToObj(i -> (char) i);
+        String backToString = charStream.map(Object::toString).sorted().reduce((a, b) -> (a + b)).get();
 
-        System.out.println(test);
+        logger.info("original string: {} and the converted one sorted: {}", test ,backToString);
 
-        Stream<Character> charStream = test.chars().mapToObj(i->(char)i);
-        String backToString = charStream.map(Object::toString).sorted().reduce((a,b)->(a+b)).get();
-
-        System.out.println(backToString);
-
-        System.out.println(converted);
-        Arrays.sort(converted);
-        System.out.println(converted);
 
     }
 

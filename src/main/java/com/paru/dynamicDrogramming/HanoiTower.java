@@ -21,12 +21,12 @@ public class HanoiTower {
             int numberOfTowers = scanner.nextInt();
 
             Tower[] towers = new Tower[numberOfTowers];
-            for(int i=0; i<numberOfTowers; i++){
-                towers[i]= new Tower(i);
+            for (int i = 0; i < numberOfTowers; i++) {
+                towers[i] = new Tower(i);
             }
             // set up
 
-            for(int j =numberOfTowers-1; j>=0;j--){
+            for (int j = numberOfTowers - 1; j >= 0; j--) {
                 towers[0].add(j);
             }
             Arrays.stream(towers).forEach(Tower::printSizeTower);
@@ -46,7 +46,7 @@ class Tower {
     private Stack<Integer> disks;
     private int index;
 
-    public Tower(int i){
+    public Tower(int i) {
         this.index = i;
         disks = new Stack<>();
     }
@@ -55,28 +55,28 @@ class Tower {
         return index;
     }
 
-    public void add(int i){
-        if(!disks.isEmpty() && disks.peek()<=i){
+    public void add(int i) {
+        if (!disks.isEmpty() && disks.peek() <= i) {
             System.out.println("illegal movment");
         } else {
             disks.push(i);
         }
     }
 
-    public void moveTopTo(Tower t){
+    public void moveTopTo(Tower t) {
         int top = disks.pop();
         t.add(top);
     }
 
-    public void moveDisks(int n, Tower destination, Tower buffer){
-        if(n>0){
-            moveDisks(n-1, buffer, destination);
+    public void moveDisks(int n, Tower destination, Tower buffer) {
+        if (n > 0) {
+            moveDisks(n - 1, buffer, destination);
             moveTopTo(destination);
-            buffer.moveDisks(n-1, destination, this);
+            buffer.moveDisks(n - 1, destination, this);
         }
     }
 
-    public void printSizeTower(){
+    public void printSizeTower() {
         System.out.println(disks.size());
     }
 }

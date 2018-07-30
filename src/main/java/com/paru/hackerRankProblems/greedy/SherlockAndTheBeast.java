@@ -27,7 +27,7 @@ public class SherlockAndTheBeast {
 
             int testNumber = scanner.nextInt();
 
-            for(int t=0;t<testNumber;t++){
+            for (int t = 0; t < testNumber; t++) {
                 int magicNumber = scanner.nextInt();
 
                 System.out.println(calculateDecentNumber(magicNumber));
@@ -41,48 +41,48 @@ public class SherlockAndTheBeast {
 
     private static int calculateDecentNumber(int magicNumber) {
 
-        if(magicNumber<3){
+        if (magicNumber < 3) {
             return -1;
         }
 
-        int maxNumbersOfPossible5 = (magicNumber/3)*3;
-        int maxNumbersOfPossible3 = (magicNumber/5)*5;
+        int maxNumbersOfPossible5 = (magicNumber / 3) * 3;
+        int maxNumbersOfPossible3 = (magicNumber / 5) * 5;
         boolean done = false;
 
-        int number5=maxNumbersOfPossible5;
-        int number3=maxNumbersOfPossible3;
+        int number5 = maxNumbersOfPossible5;
+        int number3 = maxNumbersOfPossible3;
 
-        while(!done){
+        while (!done) {
             Integer instancesOf5 = -1;
             Integer instancesOf3 = -1;
 
-            if(number5>2){
-                int decentNumberOf5s = calculateDecentNumberPerDigit(5,number5);
-                boolean multipleOfThree= isMultipleOfDigit(decentNumberOf5s,3);
-                if(multipleOfThree){
-                    instancesOf5=decentNumberOf5s;
-                    if(number5==magicNumber){
+            if (number5 > 2) {
+                int decentNumberOf5s = calculateDecentNumberPerDigit(5, number5);
+                boolean multipleOfThree = isMultipleOfDigit(decentNumberOf5s, 3);
+                if (multipleOfThree) {
+                    instancesOf5 = decentNumberOf5s;
+                    if (number5 == magicNumber) {
                         return decentNumberOf5s;
-                    } else  {
-                        number3 = magicNumber-number5;
+                    } else {
+                        number3 = magicNumber - number5;
                     }
                 }
             }
 
-            if(number3>4){
-                int decentNumberOf3s = calculateDecentNumberPerDigit(3,number3);
-                boolean multipleOfFive= isMultipleOfDigit(decentNumberOf3s,5);
-                if(multipleOfFive){
-                    instancesOf3=decentNumberOf3s;
+            if (number3 > 4) {
+                int decentNumberOf3s = calculateDecentNumberPerDigit(3, number3);
+                boolean multipleOfFive = isMultipleOfDigit(decentNumberOf3s, 5);
+                if (multipleOfFive) {
+                    instancesOf3 = decentNumberOf3s;
                 }
             }
-            if(number3+number5==magicNumber ){
+            if (number3 + number5 == magicNumber) {
                 StringBuilder res = new StringBuilder().append(instancesOf5).append(instancesOf3);
                 done = true;
                 return Integer.valueOf(res.toString());
             } else {
-                number3=-5;
-                number5=-3;
+                number3 = -5;
+                number5 = -3;
             }
 
         }
@@ -90,18 +90,18 @@ public class SherlockAndTheBeast {
         return 0;
     }
 
-    private static int calculateDecentNumberPerDigit(int digit, int numberOfTime){
-        if(numberOfTime==0){
+    private static int calculateDecentNumberPerDigit(int digit, int numberOfTime) {
+        if (numberOfTime == 0) {
             return 0;
         }
 
         StringBuilder digits = new StringBuilder();
-        IntStream.range(1,numberOfTime+1).forEach(i -> digits.append(digit));
+        IntStream.range(1, numberOfTime + 1).forEach(i -> digits.append(digit));
 
         return Integer.valueOf(digits.toString());
     }
 
-    private static boolean isMultipleOfDigit(int number, int digit){
-        return number%digit==0;
+    private static boolean isMultipleOfDigit(int number, int digit) {
+        return number % digit == 0;
     }
 }

@@ -14,6 +14,7 @@ public class TreeVisits {
         System.out.print(root.getData() + " ");
         inOrder(root.getRight());
     }
+
     //root last
     public static void postOrder(BinaryTree root) {
         if (root == null)
@@ -24,6 +25,7 @@ public class TreeVisits {
 
         System.out.print(root.getData() + " ");
     }
+
     //root first
     public static void preOrder(BinaryTree root) {
         if (root == null)
@@ -38,10 +40,10 @@ public class TreeVisits {
     //BFS implementation
     public static void levelOrder(BinaryTree root) {
 
-        if(root== null)
+        if (root == null)
             return;
 
-        System.out.print(root.getData()+" ");
+        System.out.print(root.getData() + " ");
 
         Queue<BinaryTree> queue = new LinkedList<>();
         queue.add(root);
@@ -49,13 +51,13 @@ public class TreeVisits {
         while (!queue.isEmpty()) {
             BinaryTree target = queue.remove();
 
-            if(target.getLeft() != null){
-                System.out.print(target.getLeft().getData()+" ");
+            if (target.getLeft() != null) {
+                System.out.print(target.getLeft().getData() + " ");
                 queue.add(target.getLeft());
             }
 
-            if(target.getRight() != null){
-                System.out.print(target.getRight().getData()+" ");
+            if (target.getRight() != null) {
+                System.out.print(target.getRight().getData() + " ");
                 queue.add(target.getRight());
             }
         }

@@ -26,7 +26,7 @@ public class TruckTour {
                 Long petrol = scanner.nextLong();
                 Long next = scanner.nextLong();
                 //pumpsList.add(new PetrolPump(i, petrol, next));
-                pumps.add(new PetrolPump(Long.valueOf(i) , petrol, next));
+                pumps.add(new PetrolPump(Long.valueOf(i), petrol, next));
             }
             System.out.println(calculatePump(pumps));
 
@@ -46,7 +46,7 @@ public class TruckTour {
         Long index = 0L;
         List<PetrolPump> visited = new LinkedList<>();
 
-        while(!queue.isEmpty()&&index<size+1){
+        while (!queue.isEmpty() && index < size + 1) {
             target = queue.poll();
             tank += target.getPetrol();
             //queue.add(target);
@@ -56,14 +56,14 @@ public class TruckTour {
                 tank = 0L;
                 queue.addAll(visited);
                 visited = new ArrayList<>();
-            } else{
+            } else {
                 tank = tank - target.getNextPetrolPump();
             }
             index++;
         }
 
-        if(queue.isEmpty())
-            return   start.getIndex();
+        if (queue.isEmpty())
+            return start.getIndex();
         else
             return -1L;
 

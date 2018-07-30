@@ -6,15 +6,13 @@ import java.util.List;
 public class Node {
 
     private int data;
-    private List<Node> adj ;
+    private List<Node> adj;
     private Node parent;
     private boolean visited;
     private int distance;
 
 
-
-
-    public Node(int data){
+    public Node(int data) {
         this.data = data;
         adj = new LinkedList<>();
         this.distance = Integer.MAX_VALUE;
@@ -36,7 +34,7 @@ public class Node {
         this.parent = parent;
     }
 
-    public void addAdjacent(Node child){
+    public void addAdjacent(Node child) {
         adj.add(child);
     }
 
@@ -59,7 +57,7 @@ public class Node {
     @Override
     public String toString() {
         return "Node{" +
-                 data +
+                data +
                 '}';
     }
 

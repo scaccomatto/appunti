@@ -4,8 +4,8 @@ package com.paru.treesAndGraphs;
 public class DFSGraph {
 
     public void search(Node origin) {
-        if(origin == null){
-            return ;
+        if (origin == null) {
+            return;
         }
 
 //        visit(origin);

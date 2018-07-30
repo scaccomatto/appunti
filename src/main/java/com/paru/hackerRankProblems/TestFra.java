@@ -20,7 +20,7 @@ public class TestFra {
 
         try (Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)))) {
             //try (Scanner scanner = new Scanner(System.in)) {
-            while(scanner.hasNext()){
+            while (scanner.hasNext()) {
                 System.out.println(scanner.next());
             }
 

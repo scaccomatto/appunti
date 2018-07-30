@@ -9,10 +9,9 @@ public class StdinStdout {
     private final static Logger LOGGER = Logger.getLogger(StdinStdout.class.getName());
 
 
-
-    public static void readInputByLine(InputStream source){
+    public static void readInputByLine(InputStream source) {
         try (Scanner scanner = new Scanner(source)) {
-            while(scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 System.out.println(scanner.nextLine());
             }
 
@@ -21,10 +20,10 @@ public class StdinStdout {
         }
     }
 
-    public static void readInputByToken(InputStream source){
+    public static void readInputByToken(InputStream source) {
         try (Scanner scanner = new Scanner(source)) {
 
-            while(scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 System.out.println(scanner.next());
             }
 
@@ -33,9 +32,9 @@ public class StdinStdout {
         }
     }
 
-    public static void readInputFromSystemIn(){
+    public static void readInputFromSystemIn() {
         try (Scanner scanner = new Scanner(System.in)) {
-            while(scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 System.out.println(scanner.nextLine());
             }
 
