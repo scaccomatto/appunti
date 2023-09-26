@@ -1,8 +1,6 @@
 package com.paru.hackerRankProblems;
 
-import javafx.collections.transformation.SortedList;
 
-import javax.swing.text.html.HTMLDocument;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;

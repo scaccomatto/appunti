@@ -60,5 +60,14 @@ public class TreeSamples {
 
     }
 
-
+    public void inor(BinaryTree t ){
+        if (t == null){
+            return;
+        }
+        inor(t.getLeft());
+        // visit tree
+        inor(t.getRight());
+    }
 }
+
+

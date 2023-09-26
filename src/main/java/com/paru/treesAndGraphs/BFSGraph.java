@@ -14,7 +14,7 @@ public class BFSGraph {
 
         queue.add(origin);
 
-//        while (!queue.isEmpty()) {
+//        while (!queue.isEmpty()) {1
 //            Node r = (Node) queue.remove();
 //
 //            for (Node n : r.adjacent) {
